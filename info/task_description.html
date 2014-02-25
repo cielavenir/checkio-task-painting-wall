@@ -1,39 +1,61 @@
 <p>
-    <i>( Describe task in general )</i>
-</p>
-
-<p>
-    Sum two passed ints
+You are given the number of meters to paint the wall and the list of the range to paint.<br>
+You must paint following the order described in the list (i.e. sorting etc will break this rule).<br>
+If the range to paint is overlapped, <b>they must be counted only once.</b><br>
+You need to find the minimal number of painting to paint that range.
 </p>
 
 <p style="text-align: center;">
-    <img class="for_info_only" title="example" src="{{MEDIA}}example.png" alt="example" width="392px"/>
-    <img class="for_editor_only" title="example" src="{{MEDIA}}example.png" alt="example" width="380px"/>
+<table border="1" style="border-collapse:collapse">
+<th>range to paint</td><th colspan="25">condition</th><th>painted</th>
+<tr>
+<td>[1,5]</td>
+<td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+<td>5</td>
+</tr>
+<tr>
+<td>[11,15]</td>
+<td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td bgcolor='brown'>&nbsp;</td><td bgcolor='brown'>&nbsp;</td><td bgcolor='brown'>&nbsp;</td><td bgcolor='brown'>&nbsp;</td><td bgcolor='brown'>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+<td>10</td>
+</tr>
+<tr>
+<td>[2,14]</td>
+<td bgcolor='orange'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='brown'>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+<td>15</td>
+</tr>
+<tr>
+<td>[21,25]</td>
+<td bgcolor='orange'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='brown'>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td bgcolor='blue'>&nbsp;</td><td bgcolor='blue'>&nbsp;</td><td bgcolor='blue'>&nbsp;</td><td bgcolor='blue'>&nbsp;</td><td bgcolor='blue'>&nbsp;</td>
+<td>20</td>
+</tr>
+</table>
 </p>
 
-<p><i>( Explain input and output values )</i></p>
 <p>
-    <strong>Input: </strong> Two arguments. Both are int
+	<strong>Input: </strong> Number of meters to paint. And list of the range to paint the wall (inclusive).<br>
+	Note that the range is very large (can be 2*10<sup>9</sup>) in some test cases. Remembering all painted area is insufficient.
 </p>
 
 <p>
-    <strong>Output: </strong> Int. 
+	<strong>Output: </strong> Minimal number of operation. If you cannot paint enough range, return -1.
 </p>
-
-
 
 <div class="for_info_only">
-    <p><i>( Put some usage examples )</i></p>
-    <p>
-        <strong>Example:</strong>
-    </p>
-    <pre class="brush: python">
-checkio(3, 2) == 5
-checkio(5, 7) == 12
-    </pre>
+	<p>
+		<strong>Example:</strong>
+	</p>
+	<pre class="brush: python">
+checkio(5,[[1,5],[11,15],[2,14],[21,25]]) == 1 # The first operation will paint 5 meter long.
+checkio(6,[[1,5],[11,15],[2,14],[21,25]]) == 2 # The second operation will paint 5 meter long. The sum is 10.
+checkio(11,[[1,5],[11,15],[2,14],[21,25]]) == 3 # After the third operation, the range 1-15 will be painted.
+checkio(16,[[1,5],[11,15],[2,14],[21,25]]) == 4 # Note the overlapped range must be counted only once.
+checkio(21,[[1,5],[11,15],[2,14],[21,25]]) == -1 # There are no ways to paint for 21 meters from this list.
+
+checkio(1000000011,[[1,1000000000],[11,1000000010]]) == -1 # One of the huge test cases.
+	</pre>
 </div>
 
 <p class="for_info_only">
-    <strong>How it is used: </strong>
-    <i>(Here you can explain how it can be used in development and what is usage of this.)</i>
+	<strong>How it is used: </strong>
+	Some kind of simulation.
 </p>
