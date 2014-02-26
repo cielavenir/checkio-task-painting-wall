@@ -1,72 +1,182 @@
 <p>
-You are given the number of meters to paint the wall and the list of the range to paint.<br>
-You must paint following the order described in the list (i.e. sorting etc will break this rule).<br>
-If the range to paint is overlapped, <b>they must be counted only once.</b><br>
-You need to find the minimal number of painting to paint that range.
+    Nicola has built a simple robot for painting of the wall. The wall is marked each meter.
+    The robot has a list of painting operations.
+    Each operation describe which part of wall to paint as range from where to where inclusively.
+    For example: the operation [1, 5] means to paint the part from 1 to 5 meter inclusively and 5 meters of the wall
+    will be painted.
+    Operations are executed in the order as they placed in the list of operations.
+    If ranges for various operations are overlapped, then <b>they must be counted only once.</b><br>
+</p>
+<p>
+    Stephan prepared a list of operations, but we want to check it before execution.
+    You are given how many meters of the walls should be painted (the painted zone can be separated by non painted parts).
+    Also you know the list of operations.
+    You should to find the minimal quantity of operations from the list to paint the required length of the wall.
+    If it's impossible, then return -1.
 </p>
 
-<p style="text-align: center;">
-<table border="1" style="border-collapse:collapse">
-<th>range to paint</th><th colspan="25">condition</th><th>painted</th>
-<tr>
-<td>[1,5]</td>
-<td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-<td>5</td>
-</tr>
-<tr>
-<td>[11,15]</td>
-<td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td bgcolor='orange'>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td bgcolor='brown'>&nbsp;</td><td bgcolor='brown'>&nbsp;</td><td bgcolor='brown'>&nbsp;</td><td bgcolor='brown'>&nbsp;</td><td bgcolor='brown'>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-<td>10</td>
-</tr>
-<tr>
-<td>[2,14]</td>
-<td bgcolor='orange'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='brown'>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-<td>15</td>
-</tr>
-<tr>
-<td>[21,25]</td>
-<td bgcolor='orange'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='green'>&nbsp;</td><td bgcolor='brown'>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td bgcolor='blue'>&nbsp;</td><td bgcolor='blue'>&nbsp;</td><td bgcolor='blue'>&nbsp;</td><td bgcolor='blue'>&nbsp;</td><td bgcolor='blue'>&nbsp;</td>
-<td>20</td>
-</tr>
-</table>
+<div style="text-align: center;">
+    <table border="1" style="border-collapse:collapse">
+        <tr>
+            <th>range to paint</th>
+            <th colspan="25">condition</th>
+            <th>painted</th>
+        </tr>
+        <tr>
+            <td>[1,5]</td>
+            <td bgcolor='#737370'>&nbsp;</td>
+            <td bgcolor='#737370'>&nbsp;</td>
+            <td bgcolor='#737370'>&nbsp;</td>
+            <td bgcolor='#737370'>&nbsp;</td>
+            <td bgcolor='#737370'>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>[11,15]</td>
+            <td bgcolor='#737370'>&nbsp;</td>
+            <td bgcolor='#737370'>&nbsp;</td>
+            <td bgcolor='#737370'>&nbsp;</td>
+            <td bgcolor='#737370'>&nbsp;</td>
+            <td bgcolor='#737370'>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td bgcolor='#294270'>&nbsp;</td>
+            <td bgcolor='#294270'>&nbsp;</td>
+            <td bgcolor='#294270'>&nbsp;</td>
+            <td bgcolor='#294270'>&nbsp;</td>
+            <td bgcolor='#294270'>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>[2,14]</td>
+            <td bgcolor='#737370'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#294270'>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td>[21,25]</td>
+            <td bgcolor='#737370'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#FA8F00'>&nbsp;</td>
+            <td bgcolor='#294270'>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td bgcolor='#006CA9'>&nbsp;</td>
+            <td bgcolor='#006CA9'>&nbsp;</td>
+            <td bgcolor='#006CA9'>&nbsp;</td>
+            <td bgcolor='#006CA9'>&nbsp;</td>
+            <td bgcolor='#006CA9'>&nbsp;</td>
+            <td>20</td>
+        </tr>
+    </table>
+</div>
+<br>
+<p>
+    <strong>Input: </strong> Two arguments. The required length of the wall that should be painted, as integer.
+    The second is a list of the operations that contain range (inclusive) as a list of two integers.<br>
 </p>
 
 <p>
-	<strong>Input: </strong> Number of meters to paint. And list of the range to paint the wall (inclusive).<br>
-	Note that the range is very large (1&lt;= range &lt; <b>2*10<sup>18</sup></b>) in some test cases. Remembering all painted area is insufficient.
-</p>
-
-<p>
-	<strong>Output: </strong> Minimal number of operation. If you cannot paint enough range, return -1.
+    <strong>Output: </strong> The minimal number of operation. If you cannot paint enough range with the given operations,
+    return -1.
 </p>
 
 <div class="for_info_only">
-	<p>
-		<strong>Example:</strong>
-	</p>
-	<pre class="brush: python">
-checkio(5,[[1,5],[11,15],[2,14],[21,25]]) == 1 # The first operation will paint 5 meter long.
-checkio(6,[[1,5],[11,15],[2,14],[21,25]]) == 2 # The second operation will paint 5 meter long. The sum is 10.
-checkio(11,[[1,5],[11,15],[2,14],[21,25]]) == 3 # After the third operation, the range 1-15 will be painted.
-checkio(16,[[1,5],[11,15],[2,14],[21,25]]) == 4 # Note the overlapped range must be counted only once.
-checkio(21,[[1,5],[11,15],[2,14],[21,25]]) == -1 # There are no ways to paint for 21 meters from this list.
+    <p>
+        <strong>Example:</strong>
+    </p>
+    <pre class="brush: python">
+checkio(5, [[1,5], [11,15], [2,14], [21,25]]) == 1 # The first operation will paint 5 meter long.
+checkio(6, [[1,5], [11,15], [2,14], [21,25]]) == 2 # The second operation will paint 5 meter long. The sum is 10.
+checkio(11, [[1,5], [11,15], [2,14], [21,25]]) == 3 # After the third operation, the range 1-15 will be painted.
+checkio(16, [[1,5], [11,15], [2,14], [21,25]]) == 4 # Note the overlapped range must be counted only once.
+checkio(21, [[1,5], [11,15], [2,14], [21,25]]) == -1 # There are no ways to paint for 21 meters from this list.
 
 checkio(1000000011,[[1,1000000000],[11,1000000010]]) == -1 # One of the huge test cases.
-	</pre>
+    </pre>
 </div>
 
 <p>
-	<strong>Hint: </strong> To handle start-end list, using binary search is good idea. Since CheckiO Python2.7 doesn't allow bisect module, I recommend Python3.<br>
-	# Author's solution has been locally tested using the same code on Python 2.7 and 3.3.
+    <strong>Hint: </strong> To handle start-end list, using binary search is good idea.
 </p>
 
 <p class="for_info_only">
-	<strong>How it is used: </strong>
-	Some kind of simulation.
+    <strong>How it is used: </strong>
+    Some kind of simulation.
 </p>
 
 
 <p><strong>Precondition</strong>:<br>
-    0 < |data| &le; 30<br>
-    &forall; x ∈ data : 0 &le; x < 2*10<sup>18</sup>
+    0 < |operations| &le; 30<br>
+    &forall; x ∈ data : 0 &lt; x &lt; 2*10<sup>18</sup>
 </p>
