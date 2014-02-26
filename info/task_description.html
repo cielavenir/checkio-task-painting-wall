@@ -33,7 +33,7 @@ You need to find the minimal number of painting to paint that range.
 
 <p>
 	<strong>Input: </strong> Number of meters to paint. And list of the range to paint the wall (inclusive).<br>
-	Note that the range is very large (can be 2*10<sup>18</sup>) in some test cases. Remembering all painted area is insufficient.
+	Note that the range is very large (1&lt;= range &lt; <b>2*10<sup>18</sup></b>) in some test cases. Remembering all painted area is insufficient.
 </p>
 
 <p>
@@ -54,6 +54,11 @@ checkio(21,[[1,5],[11,15],[2,14],[21,25]]) == -1 # There are no ways to paint fo
 checkio(1000000011,[[1,1000000000],[11,1000000010]]) == -1 # One of the huge test cases.
 	</pre>
 </div>
+
+<p>
+	<strong>Hint: </strong> To handle start-end list, using binary search is good idea. CheckiO Python2.7 doesn't allow bisect module. I recommend Python3.
+	# Author's solution has been locally tested using the same code on Python 2.7 and 3.3.
+</p>
 
 <p class="for_info_only">
 	<strong>How it is used: </strong>
