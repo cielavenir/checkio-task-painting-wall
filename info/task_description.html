@@ -1,154 +1,39 @@
 <p>
-    Nicola has built a simple robot for painting of the wall. The wall is marked each meter.
-    The robot has a list of painting operations.
-    Each operation describe which part of wall to paint as range from where to where inclusively.
-    For example: the operation [1, 5] means to paint the part from 1 to 5 meter inclusively and 5 meters of the wall
-    will be painted.
-    Operations are executed in the order as they placed in the list of operations.
-    If ranges for various operations are overlapped, then <b>they must be counted only once.</b><br>
+    Nicola has built a simple robot for painting of the wall.
+    The wall is marked at each meter and the robot has a list of painting operations.
+    Each operation describes which part of wall it needs to paint as a range from place to place, inclusively.
+    For example: the operation [1, 5] means to paint the sections from 1 to 5 meters including sections 1 and 5.
+    Operations are executed in the order they are placed in the list of operations.
+    If the range of various operations are overlapped, then <b>they must be counted once</b>.
 </p>
 <p>
-    Stephan prepared a list of operations, but we want to check it before execution.
-    You are given how many meters of the walls should be painted (the painted zone can be separated by non painted parts).
-    Also you know the list of operations.
-    You should to find the minimal quantity of operations from the list to paint the required length of the wall.
-    If it's impossible, then return -1.
+    Stephan has prepared a list of operations, but we need to check it before the robot executes its painting plan.
+    You are given the number of meters on the walls which need painting,
+    (the painted zones can be separated by non painted parts) and the list of operations prepared by Stephan,
+    you should determine the number of operations from this list required to paint the designated length of the wall.
+    If it's impossible to paint that length with the given operations, then return -1.
 </p>
 
-<div style="text-align: center;">
-    <table border="1" style="border-collapse:collapse">
-        <tr>
-            <th>range to paint</th>
-            <th colspan="25">condition</th>
-            <th>painted</th>
-        </tr>
-        <tr>
-            <td>[1,5]</td>
-            <td bgcolor='#737370'>&nbsp;</td>
-            <td bgcolor='#737370'>&nbsp;</td>
-            <td bgcolor='#737370'>&nbsp;</td>
-            <td bgcolor='#737370'>&nbsp;</td>
-            <td bgcolor='#737370'>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>5</td>
-        </tr>
-        <tr>
-            <td>[11,15]</td>
-            <td bgcolor='#737370'>&nbsp;</td>
-            <td bgcolor='#737370'>&nbsp;</td>
-            <td bgcolor='#737370'>&nbsp;</td>
-            <td bgcolor='#737370'>&nbsp;</td>
-            <td bgcolor='#737370'>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td bgcolor='#294270'>&nbsp;</td>
-            <td bgcolor='#294270'>&nbsp;</td>
-            <td bgcolor='#294270'>&nbsp;</td>
-            <td bgcolor='#294270'>&nbsp;</td>
-            <td bgcolor='#294270'>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>[2,14]</td>
-            <td bgcolor='#737370'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#294270'>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>15</td>
-        </tr>
-        <tr>
-            <td>[21,25]</td>
-            <td bgcolor='#737370'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#FA8F00'>&nbsp;</td>
-            <td bgcolor='#294270'>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td bgcolor='#006CA9'>&nbsp;</td>
-            <td bgcolor='#006CA9'>&nbsp;</td>
-            <td bgcolor='#006CA9'>&nbsp;</td>
-            <td bgcolor='#006CA9'>&nbsp;</td>
-            <td bgcolor='#006CA9'>&nbsp;</td>
-            <td>20</td>
-        </tr>
-    </table>
-</div>
-<br>
+<p style="text-align: center;">
+    <img class="for_info_only"
+         title="painting-wall"
+         src="{{ MEDIA }}painting-wall.png"
+         alt="painting-wall"
+         width="600px"/>
+    <img class="for_editor_only"
+         title="painting-wall"
+         src="{{ MEDIA }}painting-wall.png"
+         alt="painting-wall"
+         width="380px"/>
+</p>
+
 <p>
     <strong>Input: </strong> Two arguments. The required length of the wall that should be painted, as integer.
-    The second is a list of the operations that contain range (inclusive) as a list of two integers.<br>
+    The second is a list of the operations that contains the range (inclusive) as a list of two integers.
 </p>
 
 <p>
-    <strong>Output: </strong> The minimal number of operation. If you cannot paint enough range with the given operations,
-    return -1.
+    <strong>Output: </strong> The minimum number of operations. If you cannot paint enough of the length with the given operations, return -1.
 </p>
 
 <div class="for_info_only">
@@ -167,12 +52,12 @@ checkio(1000000011,[[1,1000000000],[11,1000000010]]) == -1 # One of the huge tes
 </div>
 
 <p>
-    <strong>Hint: </strong> To handle start-end list, using binary search is good idea.
+    <strong>Hint: </strong> To handle the beginning-end of the list, you could try running a binary search.
 </p>
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    Some kind of simulation.
+    This skillset is often used in computer simulations.
 </p>
 
 
