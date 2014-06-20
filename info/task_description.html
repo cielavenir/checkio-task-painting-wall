@@ -28,8 +28,11 @@
 </p>
 
 <p>
-    <strong>Input: </strong> Two arguments. The required length of the wall that should be painted, as integer.
-    The second is a list of the operations that contains the range (inclusive) as a list of two integers.
+    <strong>Input: </strong> Two arguments.
+    <ol>
+        <li>The required length of the wall that should be painted, as integer.</li>
+        <li>A list of the operations that contains the range (inclusive) as a list of two integers.</li>
+    </ol>
 </p>
 
 <p>
@@ -63,5 +66,5 @@ checkio(1000000011,[[1,1000000000],[11,1000000010]]) == -1 # One of the huge tes
 
 <p><strong>Precondition</strong>:<br>
     0 < |operations| &le; 30<br>
-    &forall; x ∈ data : 0 &lt; x &lt; 2*10<sup>18</sup>
+    &forall; x ∈ operations : 0 &lt; x &lt; 2*10<sup>18</sup>
 </p>
