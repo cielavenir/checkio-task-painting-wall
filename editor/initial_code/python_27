@@ -1,4 +1,4 @@
-def checkio(num, data):
+def checkio(required, operations):
     return -1
 
 
