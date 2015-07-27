@@ -65,14 +65,8 @@ checkio(1000000011,[[1,1000000000],[11,1000000010]]) == -1 # 巨大なテスト�
 
 
 <p><strong>制約</strong>:<br>
-    0 &lt; len(<strong>operations</strong>) &le; 30<br>
+    0 &lt; len(<strong>operations</strong>) &le; 30 (注：問題フォームの仕様上、上限が少ないですが、想定解法では上限数百万まで対応できます)<br>
     all(0 &lt; x &lt; 2 * 10 ** 18 and 0 &lt; y &lt; 2 * 10 ** 18 for x, y in <strong>operations</strong>)<br>
-    0 &lt; required &lt; 2 * 10 ** 18
+    0 &lt; required &lt; 2 * 10 ** 18<br>
+    ※ 塗る範囲がとても長い入力が一部あります。塗った場所を全て記憶するのは効率的ではありません。
 </p>
-
-<p><i>問題製作者注:
-    <ul style="margin-left: 20px;">
-        <li style="list-style: disc;">塗る範囲がとても長い入力が一部あります。塗った場所を全て記憶するのは効率的ではありません。</li>
-        <li style="list-style: disc;">想定解法はデータ数が数百万まで対応できます。</li>
-    </ul>
-</i></p>
